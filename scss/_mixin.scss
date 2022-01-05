@@ -1,0 +1,25 @@
+
+@mixin  Trans {
+    transition: all,0.5s ease-in-out;
+}
+@mixin  XS {
+    @media (max-width:575px) {
+        @content;
+    }
+}
+@mixin  SM {
+    @media (max-width:768px) {
+        @content;
+    }
+}
+@mixin  MD {
+    @media (min-width:769px) and  (max-width:1170px) {
+        @content;
+    }
+}
+@mixin  LG {
+    @media(min-width:1171px)
+    {
+        @content;
+    }
+}

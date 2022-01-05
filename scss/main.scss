@@ -1,0 +1,269 @@
+@import "variable";
+@import "mixin";
+@import "extend";
+
+.container{
+    width: 85%;
+    margin: auto;
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+
+body{
+    font-family: merriweather, 'Helvetica Neue',Arial, sans-serif;
+}
+header{
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 999;
+    background: $secondaryColor ;
+    .logo
+    {
+        @extend .w_f;
+        h2{
+            padding: 10px 0;;
+            color: #c9c5bd;
+        }
+    }
+    ul{
+        @extend .w_f;
+        display: flex;
+        list-style: none;
+        padding: 10px 0;
+        li{
+            padding: 10px 15px;
+            a{
+                color: #c9c5bd;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                @include Trans;
+               // transition: all,0.5s ease-in-out;
+                &:hover{
+                    color: $primaryColor;
+                }
+            }
+        }
+
+
+      
+        
+    }
+}
+
+// Home
+.home
+{
+    
+    height: 100vh;
+    background:$home_bg;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center; 
+
+    
+}
+.flex-container{
+    //  margin-bottom: 345px;
+      display: flex;
+      margin: 0;
+      flex-direction: row;
+      height: 100vh;
+
+   .float-text
+   {
+    font-size: 30px;
+    width: 45%;
+   }
+   .float-image{
+      background-repeat: no-repeat;
+      margin-top: 10%;
+      bottom: 0 ;
+      width:55%;
+      img{
+          width: 100%;
+          height: 100%;
+      }
+      
+
+   }
+}
+  
+        .home-content{ 
+            position: absolute;
+            top:50%;
+            left:25%;
+          
+            transform: translate(-50%,-50%);     
+            h2{
+                @extend .h2;
+            }
+            p{
+                @extend .p;
+            }
+            span{
+                @extend .span;
+            }
+            button{
+               @extend .button;
+            }
+        }
+   //need 
+.need{
+    padding: 3rem 0;;
+    text-align: center;
+    background: $primaryColor;
+    h2{
+      @extend .h2;
+      color:#fff;
+    }
+    p{
+        @extend .p;
+        color:#fff
+      }
+      span{
+        @extend .span;
+        background:#fff;
+      }
+      
+      button{
+        @extend .button;
+        background: #fff;
+        color:$secondaryColor;
+        &:hover{
+            color: #fff;
+        }
+
+      }
+}
+//service
+.service{
+    padding: 5rem 0;
+    background: #fff;
+    text-align: center;
+    h2{
+        @extend .h2;
+        color:$secondaryColor;
+    }
+    p{
+        @extend .p;
+    }
+    span{
+      @extend .span;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        .item{
+            i{
+                color: $primaryColor;
+            }
+            h3{
+                margin: 1rem 0;
+                color: #333;
+
+            }
+            p{
+                @extend .p;
+                color: #a4a4a4; 
+            }
+        }
+    
+    }
+}
+//images
+.images{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-size: 0;
+    > div{
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        &:after{
+            content: "";
+            position:absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:rgba(lighten($primaryColor,5),0.4) ;
+            opacity: 0;
+            @include Trans;
+            
+
+        }
+        &:hover{
+            &:after{
+                opacity: 1;
+            }
+            
+        }
+       
+    }
+}
+//DOwnload
+.download
+{
+    text-align: center;
+    background:$secondaryColor;
+    padding: 5rem 0;
+    h2{
+        @extend .h2;
+        color: #fff;
+        padding-bottom: 15px ;
+    }
+    button{
+        @extend .button;
+        background: #fff;
+        color: $secondaryColor;
+        padding: 15px 30px;
+        border-radius: 25px;
+        @include Trans;
+        &:hover{
+            color:#fff;
+            background:rgba(17, 17, 17, 0.904);
+            border: 1px solid #fff;
+            
+        }
+    }
+   
+}
+//get in touch
+.get-touch{
+    text-align: center;
+    padding: 5rem 0;
+    h2{
+        @extend .h2
+     }
+    
+     >span{
+         @extend .span;
+     }
+     .touch{
+         display: flex;
+         justify-content: center;
+         .item{
+             margin: 1rem 1.5rem;
+             &:last-child{
+                 span{
+                     color: $primaryColor;
+                 }
+             }
+         }
+         i{
+             display: block; // to set each item in a line
+         }
+     }
+    
+}
+
+
+@import "media";

@@ -1,0 +1,21 @@
+{
+  "homepage": "http://saidAalshalaby.github.io/ssDemo",
+  "name": "templetedemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "node-sass": "^7.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
